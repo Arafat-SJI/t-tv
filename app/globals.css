@@ -1,0 +1,319 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 98%;
+    --foreground: 20 10% 8%;
+    --card: 30 15% 96%;
+    --card-foreground: 20 10% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 10% 8%;
+    --brand: 25 100% 55%;
+    --primary: 25 100% 55%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 30 15% 93%;
+    --secondary-foreground: 20 10% 12%;
+    --muted: 30 10% 92%;
+    --muted-foreground: 20 8% 42%;
+    --accent: 25 100% 95%;
+    --accent-foreground: 25 100% 40%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 12% 88%;
+    --input: 30 12% 88%;
+    --ring: 25 100% 55%;
+    --brand-accent: 320 100% 55%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 20 25% 3%;
+    --foreground: 30 15% 95%;
+    --card: 22 20% 6%;
+    --card-foreground: 30 15% 95%;
+    --popover: 22 20% 6%;
+    --popover-foreground: 30 15% 95%;
+    --brand: 25 100% 55%;
+    --primary: 25 100% 55%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 22 18% 11%;
+    --secondary-foreground: 30 15% 95%;
+    --muted: 22 15% 14%;
+    --muted-foreground: 25 10% 55%;
+    --accent: 25 60% 12%;
+    --accent-foreground: 25 100% 65%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 25 15% 14%;
+    --input: 25 15% 14%;
+    --ring: 25 100% 55%;
+    --brand-accent: 320 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--brand) / 0.5);
+}
+
+/* Video.js overrides */
+.video-js {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Neo ambient lighting */
+.neo-lights {
+  background:
+    radial-gradient(ellipse 70% 50% at 8% -5%, rgba(255, 119, 0, 0.18), transparent 65%),
+    radial-gradient(ellipse 55% 45% at 92% 15%, rgba(255, 0, 180, 0.1), transparent 65%),
+    radial-gradient(ellipse 60% 35% at 50% 105%, rgba(255, 80, 0, 0.12), transparent 65%),
+    radial-gradient(ellipse 40% 30% at 70% 60%, rgba(255, 140, 0, 0.06), transparent 60%);
+  animation: neo-ambient 8s ease-in-out infinite alternate;
+}
+
+.neo-grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 119, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 119, 0, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 40%, black 20%, transparent 75%);
+}
+
+@keyframes neo-ambient {
+  0% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Neon glow effects */
+.brand-glow {
+  box-shadow:
+    0 0 20px rgba(255, 119, 0, 0.35),
+    0 0 40px rgba(255, 119, 0, 0.2),
+    0 0 60px rgba(255, 0, 180, 0.08);
+}
+
+.brand-text-glow {
+  text-shadow:
+    0 0 10px rgba(255, 119, 0, 0.8),
+    0 0 20px rgba(255, 119, 0, 0.5),
+    0 0 40px rgba(255, 80, 0, 0.3);
+}
+
+.brand-border-glow {
+  border-color: rgba(255, 119, 0, 0.4);
+  box-shadow:
+    inset 0 0 20px rgba(255, 119, 0, 0.05),
+    0 0 15px rgba(255, 119, 0, 0.15);
+}
+
+/* Glass & layout utilities */
+.glass-panel {
+  background: hsl(var(--card) / 0.55);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid hsl(var(--brand) / 0.12);
+  box-shadow:
+    0 4px 24px hsl(0 0% 0% / 0.25),
+    inset 0 1px 0 hsl(var(--brand) / 0.08);
+}
+
+.glass-nav {
+  background: hsl(var(--background) / 0.72);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border-bottom: 1px solid hsl(var(--brand) / 0.1);
+  box-shadow: 0 1px 0 hsl(var(--brand) / 0.06);
+}
+
+.glass-sidebar {
+  background: hsl(var(--card) / 0.65);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border-right: 1px solid hsl(var(--brand) / 0.1);
+  box-shadow: 4px 0 24px hsl(0 0% 0% / 0.15);
+}
+
+.gradient-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--brand) / 0.5) 20%,
+    hsl(var(--brand-accent) / 0.3) 80%,
+    transparent
+  );
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-header::before {
+  content: "";
+  width: 3px;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, hsl(var(--brand)), hsl(var(--brand-accent)));
+  box-shadow: 0 0 12px hsl(var(--brand) / 0.6);
+  flex-shrink: 0;
+}
+
+.search-pill {
+  background: hsl(var(--secondary) / 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--brand) / 0.15);
+  border-radius: 9999px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-pill:focus-within {
+  border-color: hsl(var(--brand) / 0.45);
+  box-shadow: 0 0 0 3px hsl(var(--brand) / 0.1), 0 0 20px hsl(var(--brand) / 0.12);
+}
+
+.nav-active-indicator {
+  position: relative;
+}
+
+.nav-active-indicator::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  border-radius: 0 4px 4px 0;
+  background: hsl(var(--brand));
+  box-shadow: 0 0 10px hsl(var(--brand) / 0.7);
+}
+
+.mobile-dock {
+  background: hsl(var(--card) / 0.85);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border: 1px solid hsl(var(--brand) / 0.15);
+  box-shadow:
+    0 -4px 32px hsl(0 0% 0% / 0.35),
+    0 0 24px hsl(var(--brand) / 0.06);
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    hsl(var(--brand) / 0.04) 45%,
+    hsl(var(--brand) / 0.08) 50%,
+    hsl(var(--brand) / 0.04) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.card-shine:hover::after {
+  transform: translateX(100%);
+}
+
+.scroll-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+
+/* Selection color */
+::selection,
+::-moz-selection {
+  background: #ff8c1a59 !important;
+  color: inherit;
+}
+
+@layer utilities {
+  .accent-brand {
+    accent-color: #ff8c1a;
+  }
+}
+
+/*
+ * Legacy "neon" class overrides — kills stale cached green (#00ff9d).
+ * Safe to remove after all clients refresh.
+ */
+.text-neon { color: #ff8c1a !important; }
+.text-neon\/70 { color: rgb(255 140 26 / 0.7) !important; }
+.bg-neon { background-color: #ff8c1a !important; }
+.bg-neon\/5 { background-color: rgb(255 140 26 / 0.05) !important; }
+.bg-neon\/10 { background-color: rgb(255 140 26 / 0.1) !important; }
+.bg-neon\/15 { background-color: rgb(255 140 26 / 0.15) !important; }
+.bg-neon\/20 { background-color: rgb(255 140 26 / 0.2) !important; }
+.bg-neon\/25 { background-color: rgb(255 140 26 / 0.25) !important; }
+.bg-neon\/30 { background-color: rgb(255 140 26 / 0.3) !important; }
+.bg-neon\/90 { background-color: rgb(255 140 26 / 0.9) !important; }
+.border-neon { border-color: #ff8c1a !important; }
+.border-neon\/10 { border-color: rgb(255 140 26 / 0.1) !important; }
+.border-neon\/15 { border-color: rgb(255 140 26 / 0.15) !important; }
+.border-neon\/20 { border-color: rgb(255 140 26 / 0.2) !important; }
+.border-neon\/30 { border-color: rgb(255 140 26 / 0.3) !important; }
+.border-neon\/40 { border-color: rgb(255 140 26 / 0.4) !important; }
+.border-neon\/50 { border-color: rgb(255 140 26 / 0.5) !important; }
+.border-neon\/60 { border-color: rgb(255 140 26 / 0.6) !important; }
+.border-t-neon { border-top-color: #ff8c1a !important; }
+.ring-neon\/20 { --tw-ring-color: rgb(255 140 26 / 0.2) !important; }
+.from-neon\/10 { --tw-gradient-from: rgb(255 140 26 / 0.1) !important; }
+.from-neon\/20 { --tw-gradient-from: rgb(255 140 26 / 0.2) !important; }
+.hover\:border-neon\/40:hover { border-color: rgb(255 140 26 / 0.4) !important; }
+.hover\:border-neon\/60:hover { border-color: rgb(255 140 26 / 0.6) !important; }
+.hover\:bg-neon\/5:hover { background-color: rgb(255 140 26 / 0.05) !important; }
+.hover\:bg-neon\/10:hover { background-color: rgb(255 140 26 / 0.1) !important; }
+.hover\:bg-neon\/25:hover { background-color: rgb(255 140 26 / 0.25) !important; }
+.hover\:bg-neon:hover { background-color: #ff8c1a !important; }
+.hover\:bg-neon\/80:hover { background-color: rgb(255 140 26 / 0.8) !important; }
+.hover\:bg-neon\/90:hover { background-color: rgb(255 140 26 / 0.9) !important; }
+.focus\:border-neon\/50:focus { border-color: rgb(255 140 26 / 0.5) !important; }
+.focus\:ring-neon\/20:focus { --tw-ring-color: rgb(255 140 26 / 0.2) !important; }
+.accent-neon { accent-color: #ff8c1a !important; }
