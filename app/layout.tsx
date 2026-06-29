@@ -29,6 +29,11 @@ export const metadata: Metadata = {
       "Watch thousands of free live TV channels from around the world.",
   },
   manifest: "/manifest.json",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/icon-192.png",
+  },
 };
 
 export const viewport: Viewport = {
