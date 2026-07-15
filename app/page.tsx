@@ -200,14 +200,13 @@ export default function HomePage() {
             </div>
           ) : (
             <div className="max-w-[1800px] mx-auto w-full">
-              {/* Player hero */}
-              <div className="p-3 sm:p-4 lg:p-6 pb-2 lg:pb-3">
+              {/* Player hero — sticks while channel list scrolls */}
+              <div className="sticky top-0 z-20 bg-background/90 backdrop-blur-xl p-3 sm:p-4 lg:p-6 pb-2 lg:pb-3">
                 <div className="glass-panel rounded-2xl p-1 sm:p-1.5 brand-border-glow">
                   <InlinePlayer />
                 </div>
+                <div className="gradient-line mt-3 lg:mt-4" />
               </div>
-
-              <div className="gradient-line mx-4 lg:mx-6 mb-2" />
 
               {/* Channel sections */}
               <div className="p-3 sm:p-4 lg:p-6 pt-4 space-y-8 sm:space-y-10">
